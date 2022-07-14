@@ -1,0 +1,131 @@
+body{
+    overflow-x: hidden;
+}
+*{
+    padding: 0;margin: 0;
+}
+.central_container{
+    width: 50%; margin: auto;
+    height: 500px;
+}
+.sliderUi{
+    display: flex;align-items: center;
+}
+.sliderDots{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+.sliderDots .circle{
+    /* width: 13px;                          /*тут js сам вираховує розміри точок
+    height: 13px; */
+    background-color: #5ab6fe;
+    margin: auto;
+    transition: 0.3s;
+    /* border-radius: 7.5px; */
+    /* background: url(../images/menu-dots-vertical-free-icon-font.svg) no-repeat; */
+    /* padding: 0 15px 0 0; */
+}
+/* .sliderDots i:last-child{
+    padding: 0;
+} */
+.sliderDots i.active{
+    /* width: 20px;
+    height: 20px;
+    border-radius: 10px; */
+    /* background: url(../images/activeDot.svg) no-repeat; */
+    /* padding: 0 15px 0 0; */
+}
+
+@media screen and (max-width: 767px) {
+    .central_container{
+        width: 80%; margin: auto;
+        height: 350px;
+    }
+    /* .sliderDots i{
+        width: 9px;
+        height: 9px;
+        border-radius: 4.5px;
+        background: url(../images/DotForPhones.svg) no-repeat;
+        padding: 0 15px 0 0;
+    }
+    .sliderDots i.active{
+        width: 13px;
+        height: 13px;
+        border-radius: 7.5px;
+        background: url(../images/activeDotForPhones.svg) no-repeat;
+        padding: 0 15px 0 0;
+    }   */
+}
+@media screen and (max-width: 427px){
+    .central_container{
+        width: 90%; margin: auto;
+        height: 250px;
+    }
+}
+.slider{
+    /* max-width: 1000px; margin: auto; width: 100%; */
+    /* max-width: 300px; */
+    border:1px solid black;
+    border-radius: 20px;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    margin: auto;
+    /* display: flex; */
+    
+}
+.slider .imgContainer{
+    align-items: center;
+    display: flex;
+    /* flex-basis: 300px; */
+    transition: all 0.3s;
+}
+.slider .imgContainer div{
+    flex: 1 0 auto;
+    position: relative;
+}
+.slider img{
+    /* display: none; */
+    /* object-fit: contain; */
+    /* max-width: 300px; */
+    /* width: 100%; */
+    /* height: 300px;  */
+    margin: auto;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+/* .slider img.visible{
+    display: block;
+    margin: auto;
+}
+.visibleBtn{
+    display: block;
+} */
+.prevBtn{
+    border: none;
+    flex: 1 0 auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/free-icon-font-angle-left-3916894.svg) no-repeat;
+}
+.prevBtn.disabled{
+    background: url(../images/-angle-left.svg) no-repeat;
+}
+.disabled{
+    color: gray;
+}
+.nextBtn{
+    border: none;
+    flex: 1 0 auto;
+    width: 40px;
+    height: 40px;
+    background: url(../images/free-icon-font-angle-right-3916889.svg) no-repeat;
+}
+.nextBtn.disabled{
+    background: url(../images/-angle-right.svg) no-repeat;
+}
