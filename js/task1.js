@@ -4,6 +4,7 @@
 // При натисканні на Prev - попереднє
 // При досягненні останнього зображення – ховати кнопку Next. Аналогічно з першим зображенням та кнопкою
 const imgArray = document.querySelectorAll(".slider img")
+const dotHeight = document.querySelector(".sliderDots").offsetHeight*0.66
 const imgContainersArray = document.querySelectorAll(".slider .imgContainer div")
 const sliderUi = document.querySelector(".sliderUi")
 const slider = document.querySelector(".slider")
@@ -150,11 +151,18 @@ function addDots(){
 function calcResponsiveDotSize (){
     const sliderDotsArray = sliderDotsContainer.querySelectorAll(".circle")
     const sliderDotsArrayContainer = sliderDotsContainer.querySelectorAll(".dotContainer")
-    let dotSize = sliderParent.offsetWidth*0.5/sliderDotsArray.length*0.5
+    const dotWidth = slider.parentElement.parentElement.offsetWidth*0.5/sliderDotsArray.length*0.5
+    let dotSize = (function(){
+        if(dotWidth>dotHeight){
+            return dotHeight
+        }else{
+            return dotWidth
+        }
+    }())
     sliderDotsArrayContainer.forEach((element)=>{
         element.style=`width:${dotSize*1.5}px;height:${dotSize*1.5}px;border-radius:${dotSize/2*1.5}px;position:relative`
     })
-    sliderDotsContainer.style.maxWidth=`${sliderParent.offsetWidth*0.5}px`
+    sliderDotsContainer.style.maxWidth=`${dotSize*sliderDotsArrayContainer.length*1.5}px`
     sliderDotsContainer.style.height=`${dotSize*1.5}px`
     sliderDotsArray.forEach(function(element){
         if (element.classList.contains("active")){
